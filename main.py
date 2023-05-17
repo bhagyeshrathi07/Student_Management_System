@@ -23,7 +23,7 @@ def load_user(user_id):
 
 
 # app.config['SQLALCHEMY_DATABASE_URL']='mysql://username:password@localhost/databas_table_name'
-app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:@localhost/studentManagement'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:@localhost/studentdbms'
 db=SQLAlchemy(app)
 
 # here we will create db models that is tables
@@ -249,6 +249,8 @@ def test():
         return 'My database is Connected'
     except:
         return 'My db is not Connected'
-
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 app.run(debug=True)    
